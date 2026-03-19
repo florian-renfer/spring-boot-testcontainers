@@ -1,4 +1,4 @@
-package com.lumaserv.testcontainers.support;
+package com.github.florian_renfer.testcontainers.support;
 
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.testcontainers.mariadb.MariaDBContainer;

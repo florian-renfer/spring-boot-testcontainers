@@ -1,9 +1,9 @@
-package com.lumaserv.testcontainers.user;
+package com.github.florian_renfer.testcontainers.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.lumaserv.testcontainers.support.AbstractMariaDbIntegrationTest;
+import com.github.florian_renfer.testcontainers.support.AbstractMariaDbIntegrationTest;
 import java.time.OffsetDateTime;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

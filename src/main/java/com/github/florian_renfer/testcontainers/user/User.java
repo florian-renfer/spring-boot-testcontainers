@@ -1,4 +1,4 @@
-package com.lumaserv.testcontainers.user;
+package com.github.florian_renfer.testcontainers.user;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
