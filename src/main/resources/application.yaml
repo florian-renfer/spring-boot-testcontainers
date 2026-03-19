@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: testcontainers
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    generate-ddl: false
