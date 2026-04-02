@@ -1,7 +1,7 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.5.11"
-	id("io.spring.dependency-management") version "1.1.7"
+  alias(libs.plugins.spring.boot)
+  alias(libs.plugins.spring.boot.dependency.management)
 }
 
 group = "com.github.florian-renfer"
@@ -22,9 +22,7 @@ dependencies {
 
   annotationProcessor("org.projectlombok:lombok")
 
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-validation")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation(libs.bundles.spring.boot.starter)
   implementation("org.mariadb.jdbc:mariadb-java-client")
   implementation("org.liquibase:liquibase-core")
 
@@ -32,10 +30,9 @@ dependencies {
 
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
-  testImplementation("org.springframework.boot:spring-boot-testcontainers")
+  testImplementation(libs.bundles.spring.boot.test)
   testImplementation("org.testcontainers:junit-jupiter")
-  testImplementation("org.testcontainers:testcontainers-mariadb:2.0.2")
+  testImplementation(libs.testcontainers.mariadb)
 
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
