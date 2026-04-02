@@ -21,3 +21,7 @@ spring:
             token-uri: https://github.com/login/oauth/access_token
             user-info-uri: https://api.github.com/user
             user-name-attribute: login
+app:
+  security:
+    frontend-url: http://127.0.0.1:5173
+    allowed-origins: http://127.0.0.1:5173
