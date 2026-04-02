@@ -47,7 +47,7 @@ public class SecurityConfig {
             exceptionHandling ->
                 exceptionHandling.defaultAuthenticationEntryPointFor(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
-                    request -> request.getServletPath().startsWith("/api/")))
+                    request -> request.getServletPath().startsWith("/**")))
         .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
         .oauth2Login(oauth2Login -> oauth2Login.defaultSuccessUrl(frontendUrl, true))
         .build();
