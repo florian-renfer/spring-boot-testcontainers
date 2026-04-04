@@ -11,7 +11,10 @@ import jakarta.validation.constraints.Past;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -21,6 +24,9 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "users")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
