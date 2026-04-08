@@ -3,7 +3,7 @@ package com.github.florian_renfer.testcontainers.user;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.github.florian_renfer.testcontainers.support.AbstractMariaDbIntegrationTest;
+import com.github.florian_renfer.testcontainers.support.BaseIntegrationTest;
 import java.time.OffsetDateTime;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +18,7 @@ import org.springframework.test.context.ActiveProfiles;
 @DataJpaTest
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-class UserRepositoryTest extends AbstractMariaDbIntegrationTest {
+class UserRepositoryTest extends BaseIntegrationTest {
 
   @Autowired private UserRepository userRepository;
 
@@ -81,10 +81,6 @@ class UserRepositoryTest extends AbstractMariaDbIntegrationTest {
   }
 
   private static User user(String firstName, String lastName, OffsetDateTime dateOfBirth) {
-    User user = new User();
-    user.setFirstName(firstName);
-    user.setLastName(lastName);
-    user.setDateOfBirth(dateOfBirth);
-    return user;
+    return User.builder().firstName(firstName).lastName(lastName).dateOfBirth(dateOfBirth).build();
   }
 }

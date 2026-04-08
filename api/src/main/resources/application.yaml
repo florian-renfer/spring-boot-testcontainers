@@ -4,6 +4,14 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MariaDBDialect
     generate-ddl: false
+  session:
+    store-type: redis
+    timeout: 30m
+    redis:
+      namespace: ${SESSION_NAMESPACE:testcontainers:session}
+  data:
+    redis:
+      timeout: 2s
   security:
     oauth2:
       client:

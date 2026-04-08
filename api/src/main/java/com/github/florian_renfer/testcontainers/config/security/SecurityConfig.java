@@ -4,10 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.web.cors.CorsConfiguration;
@@ -15,8 +13,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
-@Profile("!test")
-@EnableWebSecurity
 public class SecurityConfig {
 
   @Value("${app.security.allowed-origins}")
@@ -47,7 +43,9 @@ public class SecurityConfig {
             exceptionHandling ->
                 exceptionHandling.defaultAuthenticationEntryPointFor(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
-                    request -> request.getServletPath().startsWith("/**")))
+                    request ->
+                        "/api".equals(request.getServletPath())
+                            || request.getServletPath().startsWith("/api/")))
         .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
         .oauth2Login(oauth2Login -> oauth2Login.defaultSuccessUrl(frontendUrl, true))
         .build();

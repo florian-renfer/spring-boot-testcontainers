@@ -31,8 +31,8 @@ dependencies {
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
   testImplementation(libs.bundles.spring.boot.test)
+  testImplementation(libs.bundles.testcontainers)
   testImplementation("org.testcontainers:junit-jupiter")
-  testImplementation(libs.testcontainers.mariadb)
 
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
